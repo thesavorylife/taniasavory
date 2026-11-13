@@ -204,6 +204,10 @@ footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(-
 .result small{color:#cfcfcf}
 .about-photo{padding:0}
 .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.stars{color:var(--ink);letter-spacing:.3em;font-size:1rem}
+.review .sum{font:400 1.15rem/1.55 var(--display);color:var(--ink)}
+.rev-note{text-align:center;color:var(--muted);font-size:.8rem;margin-top:26px}
+.rev-cta{display:flex;justify-content:center;margin-top:22px}
 </style>
 </head>
 <body>
@@ -332,14 +336,17 @@ footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(-
 <section id="reviews">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Client stories</p>
-      <h2>What clients say</h2>
+      <p class="eyebrow">Client reviews</p>
+      <h2>Rated 5.0 on Zillow</h2>
+      <p class="lede">Nine client reviews, each with five stars. The qualities clients tag most are good negotiator, attentive, knowledgeable, responsive, and patient.</p>
     </div>
     <div class="grid3">
-      <article class="review"><span class="ph" style="align-self:flex-start">Sample review slot</span><q>A client review goes here. Two or three sentences in the client's own words work best.</q><footer>Client name, Town</footer></article>
-      <article class="review"><span class="ph" style="align-self:flex-start">Sample review slot</span><q>A client review goes here. Two or three sentences in the client's own words work best.</q><footer>Client name, Town</footer></article>
-      <article class="review"><span class="ph" style="align-self:flex-start">Sample review slot</span><q>A client review goes here. Two or three sentences in the client's own words work best.</q><footer>Client name, Town</footer></article>
+      <article class="review"><span class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p class="sum">A quick sale was the goal. This seller credits the pricing strategy with bringing in offers over asking.</p><footer>Sold a multi-family home &middot; St. Albans, Queens &middot; 2022</footer></article>
+      <article class="review"><span class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p class="sum">Efficiency stood out most to this buyer, who ranks Tania among the top agents they have hired.</p><footer>Bought a condo &middot; Bay Ridge, Brooklyn &middot; 2022</footer></article>
+      <article class="review"><span class="stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p class="sum">A returning client. After a smooth purchase with Tania, they came back when it was time to sell.</p><footer>Sold a home &middot; Wyandanch &middot; 2022</footer></article>
     </div>
+    <p class="rev-note">Summaries of verified reviews on Zillow.</p>
+    <div class="rev-cta"><a class="btn" href="https://www.zillow.com/profile/Tania%20Savory" target="_blank" rel="noopener">Read all reviews on Zillow</a></div>
   </div>
 </section>
 
