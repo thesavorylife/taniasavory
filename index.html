@@ -210,6 +210,22 @@ footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(-
 .rev-cta{display:flex;justify-content:center;margin-top:22px}
 .grid2{grid-template-columns:repeat(2,1fr);max-width:900px;margin:0 auto}
 @media (max-width:900px){.grid2{grid-template-columns:1fr}}
+
+/* insights */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:#fff;border:1px solid var(--rule);padding:38px 32px;display:flex;flex-direction:column;gap:14px;text-decoration:none;color:var(--text);transition:background .2s ease,color .2s ease}
+.card:nth-child(even){background:var(--ink);border-color:var(--ink);color:#d9d9d9}
+.card:nth-child(even) h3,.card:nth-child(even) .more{color:#fff;border-color:#fff}
+.card:nth-child(even) .eyebrow{color:#bdbdbd}
+.card h3{font-size:1.55rem}
+.card .more{margin-top:auto;align-self:flex-start;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:4px}
+.post{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.post h2{font-size:1.9rem;margin-top:18px}
+.post p,.post li{font-size:1.05rem;line-height:1.8}
+.post ul{margin:0;padding-left:22px;display:grid;gap:10px}
+.post .byline{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.post .back{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+@media (max-width:900px){.cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -223,7 +239,7 @@ footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(-
       <a href="buyers.html">Buyers</a>
       <a href="sellers.html">Sellers</a>
       <a href="#areas">Areas</a>
-      <a href="#calculator">Calculator</a>
+      <a href="insights.html">Insights</a>
       <a href="#contact">Contact</a>
     </nav>
     <a class="tel" href="tel:+15166310081">(516) 631-0081</a>
@@ -411,6 +427,21 @@ footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(-
   </div>
 </section>
 
+<section id="insights">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Insights</p>
+      <h2>Guidance for your next move</h2>
+    </div>
+    <div class="cards">
+      <a class="card" href="insight-pre-approval.html"><p class="eyebrow">For buyers</p><h3>Why pre-approval comes before house hunting</h3><p>A pre-approval letter sets your budget and shows sellers you are ready. Here is what it is and how to get one.</p><span class="more">Read insight</span></a>
+      <a class="card" href="insight-before-you-list.html"><p class="eyebrow">For sellers</p><h3>Five things to do before you list your home</h3><p>A little preparation before the sign goes up can make your home show better and your sale go smoother.</p><span class="more">Read insight</span></a>
+      <a class="card" href="insight-nautical-mile.html"><p class="eyebrow">Around town</p><h3>An afternoon on Freeport&rsquo;s Nautical Mile</h3><p>Seafood, boats, and a walk along the canal: a simple way to spend a few hours on the South Shore.</p><span class="more">Read insight</span></a>
+    </div>
+    <div class="rev-cta"><a class="btn" href="insights.html">View all insights</a></div>
+  </div>
+</section>
+
 <section class="dark contact" id="contact">
   <div class="wrap contact-grid">
     <div class="contact-copy">
@@ -465,6 +496,7 @@ footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(-
           <li><a href="buyers.html">Buyers</a></li>
           <li><a href="sellers.html">Sellers</a></li>
           <li><a href="#areas">Areas</a></li>
+          <li><a href="insights.html">Insights</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
