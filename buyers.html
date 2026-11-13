@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buying a Home with Tania Savory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: the reference's classic luxury look in a light key. White pages, soft grey bands,
+     black serif headlines, centered section heads, square outlined buttons, thin rules. */
+  --ink:#111111;
+  --text:#333333;
+  --muted:#6c757d;
+  --paper:#ffffff;
+  --soft:#f5f5f2;
+  --stone:#e9e8e3;
+  --rule:#dddcd6;
+  --display:"Playfair Display","Playfair",Georgia,"Times New Roman",serif;
+  --body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --wrap:1200px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(2.6rem,6vw,4.7rem)}
+h2{font-size:clamp(2.1rem,4.6vw,3.6rem)}
+h3{font-size:1.6rem}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.eyebrow{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+.lede{font-size:1.05rem;color:var(--muted);max-width:62ch}
+.dark{background:var(--soft)}
+.head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin-bottom:52px}
+.head .lede{margin:0 auto}
+.head.row{flex-direction:column;align-items:center;gap:22px}
+.head.row>div{align-items:center}
+.head::after{content:"";width:64px;height:1px;background:var(--ink);order:5}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 30px;border-radius:0;font:500 .78rem var(--body);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s ease,color .2s ease}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.primary,.btn.solid{background:var(--ink);color:#fff}
+.btn.primary:hover,.btn.solid:hover{background:transparent;color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.ph{display:inline-block;font:600 .64rem var(--body);letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border:1px dashed var(--muted);color:var(--muted);background:var(--paper);white-space:nowrap}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 24px;max-width:var(--wrap);margin:0 auto;flex-wrap:wrap}
+.mark{display:flex;flex-direction:column;text-decoration:none;line-height:1.15}
+.mark b{font:400 1.6rem var(--display);color:var(--ink);letter-spacing:.02em}
+.mark span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+nav{display:flex;gap:30px;overflow-x:auto;max-width:100%}
+nav a{text-decoration:none;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent;color:var(--ink)}
+nav a:hover{border-color:var(--ink)}
+.tel{text-decoration:none;white-space:nowrap;font-size:.9rem;letter-spacing:.06em;color:var(--ink)}
+
+/* hero */
+.hero{background:linear-gradient(180deg,#f1f0ec 0%,#e6e5df 100%);position:relative}
+.hero-inner{min-height:600px;padding-top:90px;padding-bottom:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px}
+.hero h1{max-width:17ch}
+.hero .lede{font-size:1.1rem;color:#4a4f54}
+.hero .ph{position:absolute;top:18px;right:24px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.creds{display:flex;gap:10px 28px;flex-wrap:wrap;justify-content:center;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* finder */
+.finder{background:var(--paper);padding:30px 0;border-bottom:1px solid var(--rule)}
+.finder form{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:14px;align-items:end}
+label{display:flex;flex-direction:column;gap:6px;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+select,input,textarea{font:400 .98rem var(--body);letter-spacing:0;text-transform:none;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:0;padding:13px 14px;width:100%}
+textarea{resize:vertical;min-height:120px}
+
+/* listings */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.listing{background:var(--paper);display:flex;flex-direction:column;border:1px solid var(--rule)}
+.shot{aspect-ratio:4/3;background:var(--stone);display:flex;align-items:center;justify-content:center;position:relative;color:#b9b8b1}
+.shot svg{width:34%}
+.shot .ph{position:absolute;top:14px;left:14px}
+.listing .info{padding:22px 24px 26px;display:flex;flex-direction:column;gap:6px}
+.listing .info b{font-weight:500;color:var(--ink)}
+.price{font:400 1.7rem var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.meta{color:var(--muted);font-size:.85rem;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+/* services */
+.services{background:var(--soft)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc article{background:var(--paper);border:1px solid var(--rule);padding:44px 34px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.svc .tag{font:400 2rem var(--display);color:var(--ink)}
+.svc a{margin-top:auto;padding-top:8px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-underline-offset:6px}
+
+/* about */
+.dark#about{background:var(--paper)}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+.about-photo{aspect-ratio:4/5;background:var(--stone);display:flex;align-items:flex-end;padding:20px}
+.about-copy{display:flex;flex-direction:column;gap:20px}
+.about-copy p{max-width:62ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24px;border-top:1px solid var(--rule);padding-top:34px}
+.facts>div{padding:0 22px;border-left:1px solid var(--rule)}
+.facts>div:first-child{padding-left:0;border-left:0}
+.facts b{display:block;font:400 3.4rem var(--display);color:var(--ink);line-height:1;margin-bottom:10px;font-variant-numeric:tabular-nums}
+.facts span{font-size:.85rem;color:var(--muted)}
+
+/* reviews */
+#reviews{background:var(--soft)}
+.review{background:var(--paper);border:1px solid var(--rule);padding:36px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+.review .ph{align-self:center !important}
+.review q{font:italic 400 1.2rem/1.5 var(--display);color:var(--ink);quotes:"\201C" "\201D"}
+.review footer{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:auto}
+
+/* calculator */
+.calc{background:var(--paper)}
+.calc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:stretch}
+.calc form{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-content:center}
+.result{background:var(--soft);border:1px solid var(--rule);padding:40px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:10px}
+.result output{font:400 clamp(2.8rem,5vw,4rem) var(--display);color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.result small{color:var(--muted);font-size:.85rem}
+
+/* areas */
+#areas{background:var(--soft)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.area{padding:40px 26px;min-height:320px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:12px;background:var(--stone);border:1px solid var(--rule);color:var(--text);text-decoration:none;transition:background .2s ease}
+.area:hover{background:var(--paper)}
+.area i{display:none}
+.area h3{font-size:2rem}
+.area p{color:var(--muted);font-size:.9rem}
+.area span{margin-top:14px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:4px}
+
+/* instagram */
+.ig{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.ig div{aspect-ratio:1;background:var(--stone);display:flex;align-items:center;justify-content:center}
+.ig div:nth-child(even){background:#f0efeb}
+
+/* contact */
+.contact{background:var(--soft)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.contact-copy{display:flex;flex-direction:column;gap:20px}
+.contact-copy dl{margin:8px 0 0;display:grid;gap:18px}
+.contact-copy dt{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.contact-copy dd{margin:0;font:400 1.3rem var(--display);color:var(--ink)}
+.contact-copy dd a{text-decoration:none}
+.contact form{background:var(--paper);border:1px solid var(--rule);padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.full{grid-column:1/-1}
+.ready{grid-column:1/-1;background:var(--soft);border:1px solid var(--rule);padding:20px;display:none;flex-direction:column;gap:12px;font-size:.92rem}
+.ready.on{display:flex}
+.ready b{color:var(--ink);font-weight:500}
+.ready pre{margin:0;white-space:pre-wrap;font:400 .9rem var(--body);background:var(--paper);padding:14px;border:1px solid var(--rule)}
+.ready .cta{justify-content:flex-start}
+.ready .cta .btn{padding:12px 18px}
+
+footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(--muted);padding:64px 0 40px;font-size:.9rem}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot h4{font:500 .68rem var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--ink);margin:0 0 16px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink)}
+.foot b{font:400 1.7rem var(--display);color:var(--ink);display:block;margin-bottom:10px}
+.legal{margin-top:44px;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem}
+
+@media (max-width:900px){
+  section{padding:68px 0}
+  .about-grid,.calc-grid,.contact-grid,.foot{grid-template-columns:1fr}
+  .about-photo{max-width:420px}
+  .hero-inner{min-height:0;padding-top:72px;padding-bottom:64px}
+  .grid3,.svc{grid-template-columns:1fr}
+  .grid4{grid-template-columns:1fr 1fr}
+  .area{min-height:240px}
+  .finder form{grid-template-columns:1fr 1fr}
+  .finder form .btn{grid-column:1/-1}
+  .ig{grid-template-columns:repeat(3,1fr)}
+  .ig div:nth-child(n+4){display:none}
+  nav{order:3;width:100%}
+}
+@media (max-width:520px){
+  .grid4,.calc form,.contact form{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr;gap:24px}
+  .facts>div{padding:0;border-left:0}
+  .hero .ph{position:static}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn,.area{transition:none}
+}
+
+/* black boxes and tiles */
+.shot,.about-photo,.ig div{background:var(--ink)}
+.ig div:nth-child(even){background:#222}
+.shot{color:#4a4a4a}
+.area{background:var(--ink);border-color:var(--ink);color:#fff}
+.area h3{color:#fff}
+.area p{color:#cfcfcf}
+.area span{color:#fff;border-color:#fff}
+.area:hover{background:#2a2a2a}
+.result{background:var(--ink);border-color:var(--ink)}
+.result output{color:#fff}
+.result small{color:#cfcfcf}
+.about-photo{padding:0}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.stars{color:var(--ink);letter-spacing:.3em;font-size:1rem}
+.review .sum{font:400 1.15rem/1.55 var(--display);color:var(--ink)}
+.rev-note{text-align:center;color:var(--muted);font-size:.8rem;margin-top:26px}
+.rev-cta{display:flex;justify-content:center;margin-top:22px}
+.grid2{grid-template-columns:repeat(2,1fr);max-width:900px;margin:0 auto}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+
+/* inner pages */
+.page-hero{background:linear-gradient(180deg,#f1f0ec 0%,#e6e5df 100%);padding:96px 0 84px;text-align:center}
+.page-hero .wrap{display:flex;flex-direction:column;align-items:center;gap:22px}
+.page-hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);max-width:18ch}
+.page-hero .lede{color:#4a4f54;font-size:1.1rem}
+.steps{list-style:none;margin:0 auto;padding:0;max-width:880px;counter-reset:step}
+.steps li{counter-increment:step;display:grid;grid-template-columns:110px 1fr;gap:28px;padding:38px 0;border-top:1px solid var(--rule);align-items:start}
+.steps li:last-child{border-bottom:1px solid var(--rule)}
+.steps li::before{content:counter(step,decimal-leading-zero);font:400 3.4rem/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.steps h3{margin-bottom:10px}
+.steps p{max-width:60ch}
+.costs{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;max-width:880px;margin:0 auto;list-style:none;padding:0}
+.costs li{padding:16px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.costs li span{display:block;color:var(--muted);font-size:.88rem}
+.fine{max-width:880px;margin:28px auto 0;text-align:center;color:var(--muted);font-size:.82rem}
+.why{max-width:760px;margin:0 auto;text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center}
+.cta-band{background:var(--ink);text-align:center}
+.cta-band h2,.cta-band p{color:#fff}
+.cta-band .wrap{display:flex;flex-direction:column;align-items:center;gap:22px}
+.cta-band .btn{border-color:#fff;color:#fff}
+.cta-band .btn:hover{background:#fff;color:var(--ink)}
+.cta-band .btn.primary{background:#fff;color:var(--ink)}
+.cta-band .btn.primary:hover{background:transparent;color:#fff}
+@media (max-width:640px){.steps li{grid-template-columns:1fr;gap:10px}.costs{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="mark" href="index.html#top"><b>Tania Savory</b><span>HomeSmart Cross Island</span></a>
+    <nav aria-label="Main">
+      <a href="index.html#about">About</a>
+      <a href="index.html#listings">Listings</a>
+      <a href="buyers.html">Buyers</a>
+      <a href="sellers.html">Sellers</a>
+      <a href="index.html#areas">Areas</a>
+      <a href="index.html#calculator">Calculator</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a class="tel" href="tel:+15166310081">(516) 631-0081</a>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">For buyers</p>
+    <h1>Your path to the right home, one clear step at a time</h1>
+    <p class="lede">Buying in Nassau, Suffolk, Brooklyn, or Queens moves quickly and involves a lot of people. Here is what to expect from the first conversation to the day you get your keys.</p>
+    <div class="cta"><a class="btn primary" href="index.html#contact">Get in touch</a></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The roadmap</p>
+      <h2>How buying a home works</h2>
+    </div>
+    <ol class="steps">
+        <li><div><h3>Start with a conversation</h3><p>We talk through what you want, where you want to live, and your timeline. Before touring homes, you will review a buyer representation agreement that explains how Tania works for you.</p></div></li>
+        <li><div><h3>Get pre-approved</h3><p>A lender reviews your income, credit, and savings, then issues a pre-approval letter. That letter shows sellers you are ready and tells you the price range to shop in.</p></div></li>
+        <li><div><h3>Tour homes</h3><p>Tania sets up a search matched to your needs and schedules showings. Seeing homes in person helps you sort the must-haves from the nice-to-haves.</p></div></li>
+        <li><div><h3>Make an offer</h3><p>Once a home feels right, recent comparable sales guide the price and terms. Tania presents your offer and negotiates on your behalf.</p></div></li>
+        <li><div><h3>Inspection and contracts</h3><p>After an offer is accepted, a home inspector checks the property. In New York, attorneys for the buyer and seller prepare and review the contract, and your contract deposit is held in escrow.</p></div></li>
+        <li><div><h3>Mortgage, appraisal, and title</h3><p>Your lender orders an appraisal and completes its review, ending with a mortgage commitment. A title company confirms the seller can transfer clear ownership.</p></div></li>
+        <li><div><h3>Final walkthrough and closing</h3><p>Shortly before closing, you walk through the home to confirm its condition. At the closing table you sign the documents, the funds change hands, and the keys are yours.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Financial obligations</p>
+      <h2>Costs to plan for</h2>
+      <p class="lede">The purchase price is only part of the picture. These are the common costs buyers in New York should budget for.</p>
+    </div>
+    <ul class="costs">
+        <li>Down payment<span>The portion of the price you pay up front</span></li>
+        <li>Contract deposit<span>Paid at contract signing and credited toward your purchase</span></li>
+        <li>Home inspection<span>Paid to the inspector at the time of the inspection</span></li>
+        <li>Attorney fee<span>For contract review and representation at closing</span></li>
+        <li>Lender fees and appraisal<span>Charged by your mortgage lender</span></li>
+        <li>Title insurance<span>Protects against claims on the property&rsquo;s ownership</span></li>
+        <li>Mortgage recording tax<span>A New York tax on most new mortgages</span></li>
+        <li>Mansion tax<span>A New York tax on purchases of $1 million or more</span></li>
+        <li>Homeowners insurance<span>Required by lenders before closing</span></li>
+        <li>Tax and insurance escrows<span>Prepaid amounts your lender may collect at closing</span></li>
+    </ul>
+    <p class="fine">This page is general information about a typical New York sale. It is not legal, tax, or lending advice. Your attorney and lender will confirm the figures for your transaction.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap why">
+    <p class="eyebrow">Why work with Tania</p>
+    <h2>An advocate on your side of the table</h2>
+    <p>Tania holds the Accredited Buyer&rsquo;s Representative (ABR) and Real Estate Negotiation Expert (RENE) designations, both earned through formal coursework. Her earlier career as a data analyst shapes how she studies comparable sales, and more than 30 years of relationships in Freeport and Nassau County mean she knows many of these neighborhoods firsthand.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready to start your search?</h2>
+    <p>Tell Tania what you are looking for and she will map out your next step.</p>
+    <div class="cta"><a class="btn primary" href="index.html#contact">Get in touch</a><a class="btn" href="index.html#calculator">Mortgage calculator</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <b>Tania Savory</b>
+        <p>Encarnacion &ldquo;Tania&rdquo; Savory, MS<br>Licensed Real Estate Salesperson<br>HomeSmart Cross Island</p>
+        <p style="margin-top:12px"><span class="ph">Brokerage address and office phone go here</span></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#listings">Listings</a></li>
+          <li><a href="buyers.html">Buyers</a></li>
+          <li><a href="sellers.html">Sellers</a></li>
+          <li><a href="index.html#areas">Areas</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15166310081">(516) 631-0081</a></li>
+          <li><a href="mailto:tania@taniasavory.com">tania@taniasavory.com</a></li>
+          <li><a href="https://www.instagram.com/home_and_next/" target="_blank" rel="noopener">Instagram @home_and_next</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Tania Savory. Equal Housing Opportunity.</span>
+      <span><span class="ph">Fair housing notice link</span> &nbsp; <span class="ph">Operating procedures link</span></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
