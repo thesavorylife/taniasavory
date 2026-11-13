@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tania Savory Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: the reference's classic luxury look in a light key. White pages, soft grey bands,
+     black serif headlines, centered section heads, square outlined buttons, thin rules. */
+  --ink:#111111;
+  --text:#333333;
+  --muted:#6c757d;
+  --paper:#ffffff;
+  --soft:#f5f5f2;
+  --stone:#e9e8e3;
+  --rule:#dddcd6;
+  --display:"Playfair Display","Playfair",Georgia,"Times New Roman",serif;
+  --body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --wrap:1200px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;margin:0;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(2.6rem,6vw,4.7rem)}
+h2{font-size:clamp(2.1rem,4.6vw,3.6rem)}
+h3{font-size:1.6rem}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+.eyebrow{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;font-weight:500;color:var(--muted)}
+.lede{font-size:1.05rem;color:var(--muted);max-width:62ch}
+.dark{background:var(--soft)}
+.head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin-bottom:52px}
+.head .lede{margin:0 auto}
+.head.row{flex-direction:column;align-items:center;gap:22px}
+.head.row>div{align-items:center}
+.head::after{content:"";width:64px;height:1px;background:var(--ink);order:5}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 30px;border-radius:0;font:500 .78rem var(--body);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s ease,color .2s ease}
+.btn:hover{background:var(--ink);color:#fff}
+.btn.primary,.btn.solid{background:var(--ink);color:#fff}
+.btn.primary:hover,.btn.solid:hover{background:transparent;color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.ph{display:inline-block;font:600 .64rem var(--body);letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border:1px dashed var(--muted);color:var(--muted);background:var(--paper);white-space:nowrap}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 24px;max-width:var(--wrap);margin:0 auto;flex-wrap:wrap}
+.mark{display:flex;flex-direction:column;text-decoration:none;line-height:1.15}
+.mark b{font:400 1.6rem var(--display);color:var(--ink);letter-spacing:.02em}
+.mark span{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+nav{display:flex;gap:30px;overflow-x:auto;max-width:100%}
+nav a{text-decoration:none;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;padding:6px 0;border-bottom:1px solid transparent;color:var(--ink)}
+nav a:hover{border-color:var(--ink)}
+.tel{text-decoration:none;white-space:nowrap;font-size:.9rem;letter-spacing:.06em;color:var(--ink)}
+
+/* hero */
+.hero{background:linear-gradient(180deg,#f1f0ec 0%,#e6e5df 100%);position:relative}
+.hero-inner{min-height:600px;padding-top:90px;padding-bottom:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:26px}
+.hero h1{max-width:17ch}
+.hero .lede{font-size:1.1rem;color:#4a4f54}
+.hero .ph{position:absolute;top:18px;right:24px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.creds{display:flex;gap:10px 28px;flex-wrap:wrap;justify-content:center;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* finder */
+.finder{background:var(--paper);padding:30px 0;border-bottom:1px solid var(--rule)}
+.finder form{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:14px;align-items:end}
+label{display:flex;flex-direction:column;gap:6px;font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+select,input,textarea{font:400 .98rem var(--body);letter-spacing:0;text-transform:none;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:0;padding:13px 14px;width:100%}
+textarea{resize:vertical;min-height:120px}
+
+/* listings */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.listing{background:var(--paper);display:flex;flex-direction:column;border:1px solid var(--rule)}
+.shot{aspect-ratio:4/3;background:var(--stone);display:flex;align-items:center;justify-content:center;position:relative;color:#b9b8b1}
+.shot svg{width:34%}
+.shot .ph{position:absolute;top:14px;left:14px}
+.listing .info{padding:22px 24px 26px;display:flex;flex-direction:column;gap:6px}
+.listing .info b{font-weight:500;color:var(--ink)}
+.price{font:400 1.7rem var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.meta{color:var(--muted);font-size:.85rem;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+/* services */
+.services{background:var(--soft)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.svc article{background:var(--paper);border:1px solid var(--rule);padding:44px 34px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.svc .tag{font:400 2rem var(--display);color:var(--ink)}
+.svc a{margin-top:auto;padding-top:8px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-underline-offset:6px}
+
+/* about */
+.dark#about{background:var(--paper)}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+.about-photo{aspect-ratio:4/5;background:var(--stone);display:flex;align-items:flex-end;padding:20px}
+.about-copy{display:flex;flex-direction:column;gap:20px}
+.about-copy p{max-width:62ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24px;border-top:1px solid var(--rule);padding-top:34px}
+.facts>div{padding:0 22px;border-left:1px solid var(--rule)}
+.facts>div:first-child{padding-left:0;border-left:0}
+.facts b{display:block;font:400 3.4rem var(--display);color:var(--ink);line-height:1;margin-bottom:10px;font-variant-numeric:tabular-nums}
+.facts span{font-size:.85rem;color:var(--muted)}
+
+/* reviews */
+#reviews{background:var(--soft)}
+.review{background:var(--paper);border:1px solid var(--rule);padding:36px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+.review .ph{align-self:center !important}
+.review q{font:italic 400 1.2rem/1.5 var(--display);color:var(--ink);quotes:"\201C" "\201D"}
+.review footer{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:auto}
+
+/* calculator */
+.calc{background:var(--paper)}
+.calc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:stretch}
+.calc form{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-content:center}
+.result{background:var(--soft);border:1px solid var(--rule);padding:40px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:10px}
+.result output{font:400 clamp(2.8rem,5vw,4rem) var(--display);color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.result small{color:var(--muted);font-size:.85rem}
+
+/* areas */
+#areas{background:var(--soft)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.area{padding:40px 26px;min-height:320px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:12px;background:var(--stone);border:1px solid var(--rule);color:var(--text);text-decoration:none;transition:background .2s ease}
+.area:hover{background:var(--paper)}
+.area i{display:none}
+.area h3{font-size:2rem}
+.area p{color:var(--muted);font-size:.9rem}
+.area span{margin-top:14px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:4px}
+
+/* instagram */
+.ig{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.ig div{aspect-ratio:1;background:var(--stone);display:flex;align-items:center;justify-content:center}
+.ig div:nth-child(even){background:#f0efeb}
+
+/* contact */
+.contact{background:var(--soft)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.contact-copy{display:flex;flex-direction:column;gap:20px}
+.contact-copy dl{margin:8px 0 0;display:grid;gap:18px}
+.contact-copy dt{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.contact-copy dd{margin:0;font:400 1.3rem var(--display);color:var(--ink)}
+.contact-copy dd a{text-decoration:none}
+.contact form{background:var(--paper);border:1px solid var(--rule);padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.full{grid-column:1/-1}
+.ready{grid-column:1/-1;background:var(--soft);border:1px solid var(--rule);padding:20px;display:none;flex-direction:column;gap:12px;font-size:.92rem}
+.ready.on{display:flex}
+.ready b{color:var(--ink);font-weight:500}
+.ready pre{margin:0;white-space:pre-wrap;font:400 .9rem var(--body);background:var(--paper);padding:14px;border:1px solid var(--rule)}
+.ready .cta{justify-content:flex-start}
+.ready .cta .btn{padding:12px 18px}
+
+footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(--muted);padding:64px 0 40px;font-size:.9rem}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot h4{font:500 .68rem var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--ink);margin:0 0 16px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--ink)}
+.foot b{font:400 1.7rem var(--display);color:var(--ink);display:block;margin-bottom:10px}
+.legal{margin-top:44px;padding-top:24px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem}
+
+@media (max-width:900px){
+  section{padding:68px 0}
+  .about-grid,.calc-grid,.contact-grid,.foot{grid-template-columns:1fr}
+  .about-photo{max-width:420px}
+  .hero-inner{min-height:0;padding-top:72px;padding-bottom:64px}
+  .grid3,.svc{grid-template-columns:1fr}
+  .grid4{grid-template-columns:1fr 1fr}
+  .area{min-height:240px}
+  .finder form{grid-template-columns:1fr 1fr}
+  .finder form .btn{grid-column:1/-1}
+  .ig{grid-template-columns:repeat(3,1fr)}
+  .ig div:nth-child(n+4){display:none}
+  nav{order:3;width:100%}
+}
+@media (max-width:520px){
+  .grid4,.calc form,.contact form{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr;gap:24px}
+  .facts>div{padding:0;border-left:0}
+  .hero .ph{position:static}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn,.area{transition:none}
+}
+
+/* black boxes and tiles */
+.shot,.about-photo,.ig div{background:var(--ink)}
+.ig div:nth-child(even){background:#222}
+.shot{color:#4a4a4a}
+.area{background:var(--ink);border-color:var(--ink);color:#fff}
+.area h3{color:#fff}
+.area p{color:#cfcfcf}
+.area span{color:#fff;border-color:#fff}
+.area:hover{background:#2a2a2a}
+.result{background:var(--ink);border-color:var(--ink)}
+.result output{color:#fff}
+.result small{color:#cfcfcf}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="mark" href="#top"><b>Tania Savory</b><span>HomeSmart Cross Island</span></a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#listings">Listings</a>
+      <a href="#services">Buyers &amp; Sellers</a>
+      <a href="#areas">Areas</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="tel" href="tel:+15166310081">(516) 631-0081</a>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <span class="ph">Hero photo goes here</span>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Nassau &middot; Suffolk &middot; Brooklyn &middot; Queens</p>
+    <h1>Find your way home with a neighbor in your corner</h1>
+    <p class="lede">Tania Savory is a licensed real estate salesperson with HomeSmart Cross Island. More than 30 years of relationships in Freeport and across Nassau County shape how she works.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contact" data-intent="I would like a home valuation.">Home valuation</a>
+      <a class="btn" href="#finder">Search homes</a>
+    </div>
+    <div class="creds"><span>ABR&reg; Accredited Buyer's Representative</span><span>RENE Real Estate Negotiation Expert</span></div>
+  </div>
+</div>
+
+<div class="finder" id="finder">
+  <div class="wrap">
+    <form id="finderForm">
+      <label for="f-goal">I want to
+        <select id="f-goal"><option>Buy a home</option><option>Sell a home</option><option>Buy and sell</option><option>Invest in property</option></select>
+      </label>
+      <label for="f-area">Area
+        <select id="f-area"><option>Nassau County</option><option>Suffolk County</option><option>Brooklyn</option><option>Queens</option><option>Still deciding</option></select>
+      </label>
+      <label for="f-beds">Bedrooms
+        <select id="f-beds"><option>Any</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select>
+      </label>
+      <label for="f-budget">Price range
+        <select id="f-budget"><option>Flexible</option><option>Up to $500,000</option><option>$500,000 to $750,000</option><option>$750,000 to $1,000,000</option><option>Over $1,000,000</option></select>
+      </label>
+      <button class="btn solid" type="submit">Send to Tania</button>
+    </form>
+  </div>
+</div>
+
+<section id="listings">
+  <div class="wrap">
+    <div class="head row">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <p class="eyebrow">Featured properties</p>
+        <h2>Homes worth a closer look</h2>
+      </div>
+      <a class="btn" href="#contact" data-intent="Please send me homes that match my search.">Ask for a custom list</a>
+    </div>
+    <div class="grid3">
+      <article class="listing">
+        <div class="shot"><span class="ph">Sample listing slot</span><svg viewBox="0 0 100 80" fill="currentColor" aria-hidden="true"><path d="M50 4 4 40h10v36h26V52h20v24h26V40h10z"/></svg></div>
+        <div class="info"><span class="price">$000,000</span><b>Street address, Town, NY</b><span class="meta">0 bd &middot; 0 ba &middot; 0,000 sq ft</span></div>
+      </article>
+      <article class="listing">
+        <div class="shot"><span class="ph">Sample listing slot</span><svg viewBox="0 0 100 80" fill="currentColor" aria-hidden="true"><path d="M50 4 4 40h10v36h26V52h20v24h26V40h10z"/></svg></div>
+        <div class="info"><span class="price">$000,000</span><b>Street address, Town, NY</b><span class="meta">0 bd &middot; 0 ba &middot; 0,000 sq ft</span></div>
+      </article>
+      <article class="listing">
+        <div class="shot"><span class="ph">Sample listing slot</span><svg viewBox="0 0 100 80" fill="currentColor" aria-hidden="true"><path d="M50 4 4 40h10v36h26V52h20v24h26V40h10z"/></svg></div>
+        <div class="info"><span class="price">$000,000</span><b>Street address, Town, NY</b><span class="meta">0 bd &middot; 0 ba &middot; 0,000 sq ft</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Buyers &amp; sellers</p>
+      <h2>Clear guidance on both sides of the sale</h2>
+    </div>
+    <div class="svc">
+      <article>
+        <span class="tag">Buying</span>
+        <p>As an Accredited Buyer's Representative, Tania walks you through financing conversations, showings, offers, and closing, one clear step at a time.</p>
+        <a href="#contact" data-intent="I am looking to buy a home.">Plan your purchase</a>
+      </article>
+      <article>
+        <span class="tag">Selling</span>
+        <p>Pricing, preparation, and marketing are planned around your timeline. It starts with a home valuation and an honest talk about your goals.</p>
+        <a href="#contact" data-intent="I would like a home valuation.">Request a valuation</a>
+      </article>
+      <article>
+        <span class="tag">Negotiating</span>
+        <p>The Real Estate Negotiation Expert designation reflects formal training in negotiation. You get that training at the table for price, terms, and repairs.</p>
+        <a href="#contact" data-intent="I have a question about an offer.">Talk through an offer</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo"><span class="ph">Your portrait goes here</span></div>
+    <div class="about-copy">
+      <p class="eyebrow">About Tania</p>
+      <h2>Community first, with the numbers on the table</h2>
+      <p>Tania Savory is a licensed real estate salesperson with HomeSmart Cross Island. Her ties to Freeport and Nassau County go back more than 30 years, so many of the blocks she shows are blocks she already knows well.</p>
+      <p>Before real estate, she worked as a data analyst. That background guides how she studies pricing and comparable sales with every client. She holds a Master of Science degree along with the ABR and RENE designations.</p>
+      <div><a class="btn primary" href="#contact">Meet with Tania</a></div>
+      <div class="facts">
+        <div><b>4</b><span>areas served: Nassau, Suffolk, Brooklyn, and Queens</span></div>
+        <div><b>2</b><span>professional designations: ABR and RENE</span></div>
+        <div><b>30+</b><span>years of community relationships in Freeport and Nassau County</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Client stories</p>
+      <h2>What clients say</h2>
+    </div>
+    <div class="grid3">
+      <article class="review"><span class="ph" style="align-self:flex-start">Sample review slot</span><q>A client review goes here. Two or three sentences in the client's own words work best.</q><footer>Client name, Town</footer></article>
+      <article class="review"><span class="ph" style="align-self:flex-start">Sample review slot</span><q>A client review goes here. Two or three sentences in the client's own words work best.</q><footer>Client name, Town</footer></article>
+      <article class="review"><span class="ph" style="align-self:flex-start">Sample review slot</span><q>A client review goes here. Two or three sentences in the client's own words work best.</q><footer>Client name, Town</footer></article>
+    </div>
+  </div>
+</section>
+
+<section class="calc" id="calculator">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Mortgage calculator</p>
+      <h2>Estimate a monthly payment</h2>
+      <p class="lede">The starting figures are examples. Replace them with your own price, down payment, and quoted rate.</p>
+    </div>
+    <div class="calc-grid">
+      <form id="calcForm">
+        <label for="c-price">Home price ($)<input id="c-price" type="number" min="0" step="1000" value="600000" inputmode="numeric"></label>
+        <label for="c-down">Down payment (%)<input id="c-down" type="number" min="0" max="100" step="0.5" value="20" inputmode="decimal"></label>
+        <label for="c-rate">Interest rate (%)<input id="c-rate" type="number" min="0" step="0.01" value="6.5" inputmode="decimal"></label>
+        <label for="c-term">Loan term<select id="c-term"><option value="30">30 years</option><option value="20">20 years</option><option value="15">15 years</option></select></label>
+      </form>
+      <div class="result">
+        <small>Estimated principal and interest</small>
+        <output id="c-out" for="c-price c-down c-rate c-term">$0</output>
+        <small id="c-note">per month</small>
+        <small>Property taxes, insurance, and other costs are extra. A lender can give you exact figures.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="wrap">
+    <div class="head row">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <p class="eyebrow">Areas served</p>
+        <h2>Four areas, one point of contact</h2>
+      </div>
+      <span class="ph">Town lists are samples to edit</span>
+    </div>
+    <div class="grid4">
+      <a class="area" href="#contact" data-intent="I am interested in Brooklyn."><i>Stop 1</i><h3>Brooklyn</h3><p>Canarsie, Flatbush, Bedford-Stuyvesant, and nearby neighborhoods.</p><span>Explore Brooklyn &rarr;</span></a>
+      <a class="area" href="#contact" data-intent="I am interested in Queens."><i>Stop 2</i><h3>Queens</h3><p>Laurelton, Rosedale, Jamaica, and nearby neighborhoods.</p><span>Explore Queens &rarr;</span></a>
+      <a class="area" href="#contact" data-intent="I am interested in Nassau County."><i>Stop 3</i><h3>Nassau</h3><p>Freeport, Baldwin, Rockville Centre, and nearby towns.</p><span>Explore Nassau &rarr;</span></a>
+      <a class="area" href="#contact" data-intent="I am interested in Suffolk County."><i>Stop 4</i><h3>Suffolk</h3><p>Babylon, Bay Shore, Huntington, and nearby towns.</p><span>Explore Suffolk &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head row">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <p class="eyebrow">Instagram</p>
+        <h2>Follow @home_and_next</h2>
+      </div>
+      <a class="btn solid" href="https://www.instagram.com/home_and_next/" target="_blank" rel="noopener">Follow on Instagram</a>
+    </div>
+    <div class="ig">
+      <div><span class="ph">Post</span></div><div><span class="ph">Post</span></div><div><span class="ph">Post</span></div><div><span class="ph">Post</span></div><div><span class="ph">Post</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <p class="eyebrow">Get in touch</p>
+      <h2>Tell Tania what you have in mind</h2>
+      <p class="lede">Share a few details and choose a time that suits you for a call. A short conversation is the easiest place to begin.</p>
+      <dl>
+        <div><dt>Call or text</dt><dd><a href="tel:+15166310081">(516) 631-0081</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:tania@taniasavory.com">tania@taniasavory.com</a></dd></div>
+        <div><dt>Brokerage</dt><dd>HomeSmart Cross Island</dd></div>
+      </dl>
+    </div>
+    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label for="m-bot">Leave this empty<input id="m-bot" name="bot-field"></label></p>
+      <label for="m-name">Name<input id="m-name" name="name" type="text" autocomplete="name" required></label>
+      <label for="m-phone">Phone<input id="m-phone" name="phone" type="tel" autocomplete="tel"></label>
+      <label for="m-email" class="full">Email<input id="m-email" name="email" type="email" autocomplete="email" required></label>
+      <label for="m-time" class="full">Best time for a call
+        <select id="m-time" name="best-time"><option>Weekday evenings</option><option>Weekends</option></select>
+      </label>
+      <label for="m-msg" class="full">How can Tania help?<textarea id="m-msg" name="message"></textarea></label>
+      <button class="btn primary full" type="submit">Send message</button>
+      <div class="ready" id="ready" role="status">
+        <b>Your message is ready. Send it by email or copy it into a text.</b>
+        <pre id="readyText"></pre>
+        <div class="cta">
+          <a class="btn solid" id="mailLink" href="mailto:tania@taniasavory.com">Open in email</a>
+          <button class="btn" type="button" id="copyBtn">Copy message</button>
+        </div>
+        <span>Email: tania@taniasavory.com &middot; Text: (516) 631-0081</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <b>Tania Savory</b>
+        <p>Encarnacion &ldquo;Tania&rdquo; Savory, MS<br>Licensed Real Estate Salesperson<br>HomeSmart Cross Island</p>
+        <p style="margin-top:12px"><span class="ph">Brokerage address and office phone go here</span></p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#listings">Listings</a></li>
+          <li><a href="#services">Buyers &amp; Sellers</a></li>
+          <li><a href="#areas">Areas</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+15166310081">(516) 631-0081</a></li>
+          <li><a href="mailto:tania@taniasavory.com">tania@taniasavory.com</a></li>
+          <li><a href="https://www.instagram.com/home_and_next/" target="_blank" rel="noopener">Instagram @home_and_next</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 Tania Savory. Equal Housing Opportunity.</span>
+      <span><span class="ph">Fair housing notice link</span> &nbsp; <span class="ph">Operating procedures link</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var msg = $('m-msg');
+
+  function toContact(text){
+    msg.value = text;
+    $('contact').scrollIntoView();
+    try { $('m-name').focus({preventScroll:true}); } catch(e){}
+  }
+
+  // Search bar hands its answers to the contact form
+  $('finderForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    toContact('I want to: ' + $('f-goal').value + '\nArea: ' + $('f-area').value +
+      '\nBedrooms: ' + $('f-beds').value + '\nPrice range: ' + $('f-budget').value);
+  });
+
+  // Buttons and area cards prefill the message
+  Array.prototype.forEach.call(document.querySelectorAll('[data-intent]'), function(a){
+    a.addEventListener('click', function(){ if(!msg.value){ msg.value = a.getAttribute('data-intent'); } });
+  });
+
+  // Mortgage calculator: standard amortization, principal and interest only
+  function payment(price, downPct, ratePct, years){
+    var loan = price * (1 - downPct/100), n = years*12, r = ratePct/100/12;
+    if(!(loan > 0) || !(n > 0)) return 0;
+    return r === 0 ? loan/n : loan*r/(1 - Math.pow(1+r, -n));
+  }
+  function calc(){
+    var price = +$('c-price').value || 0, down = Math.min(100, Math.max(0, +$('c-down').value || 0));
+    var p = payment(price, down, Math.max(0, +$('c-rate').value || 0), +$('c-term').value);
+    $('c-out').textContent = '$' + Math.round(p).toLocaleString('en-US');
+    $('c-note').textContent = 'per month on a $' + Math.round(price*(1-down/100)).toLocaleString('en-US') + ' loan';
+  }
+  $('calcForm').addEventListener('input', calc);
+  $('calcForm').addEventListener('submit', function(e){ e.preventDefault(); });
+  calc();
+
+  // Contact form: builds a message the visitor sends themselves
+  $('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var text = 'Name: ' + $('m-name').value + '\nEmail: ' + $('m-email').value +
+      ($('m-phone').value ? '\nPhone: ' + $('m-phone').value : '') +
+      '\nBest time for a call: ' + $('m-time').value +
+      (msg.value ? '\n\n' + msg.value : '');
+    $('readyText').textContent = text;
+    $('mailLink').href = 'mailto:tania@taniasavory.com?subject=' +
+      encodeURIComponent('Website inquiry from ' + $('m-name').value) + '&body=' + encodeURIComponent(text);
+    var form = this, lead = $('ready').querySelector('b');
+    function fallback(){ lead.textContent = 'Your message could not be sent from this page. Send it by email or copy it into a text.'; $('ready').classList.add('on'); }
+    fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){
+        if(!r.ok){ fallback(); return; }
+        lead.textContent = 'Thank you. Your message was sent to Tania.';
+        $('readyText').style.display = 'none';
+        $('ready').querySelector('.cta').style.display = 'none';
+        $('ready').classList.add('on');
+        form.querySelector('button[type=submit]').disabled = true;
+      }).catch(fallback);
+  });
+  $('copyBtn').addEventListener('click', function(){
+    var b = this;
+    try {
+      navigator.clipboard.writeText($('readyText').textContent).then(function(){ b.textContent = 'Copied'; },
+        function(){ b.textContent = 'Select the text above to copy'; });
+    } catch(err){ b.textContent = 'Select the text above to copy'; }
+  });
+})();
+</script>
+</body>
+</html>
