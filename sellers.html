@@ -235,6 +235,13 @@ footer.site{background:var(--paper);border-top:1px solid var(--rule);color:var(-
 .cta-band .btn.primary{background:#fff;color:var(--ink)}
 .cta-band .btn.primary:hover{background:transparent;color:#fff}
 @media (max-width:640px){.steps li{grid-template-columns:1fr;gap:10px}.costs{grid-template-columns:1fr}}
+
+/* alternating black and white steps */
+.steps li{padding:36px 34px;border:1px solid var(--rule);border-top:0;background:#fff}
+.steps li:first-child{border-top:1px solid var(--rule)}
+.steps li:nth-child(odd){background:var(--ink);border-color:var(--ink)}
+.steps li:nth-child(odd)::before,.steps li:nth-child(odd) h3{color:#fff}
+.steps li:nth-child(odd) p{color:#d9d9d9}
 </style>
 </head>
 <body>
